@@ -1,2 +1,2 @@
 # friendgram-frontend
-Instagram clone Powered by Vue, Element UI, and Webpack
+Frontend version of my FriendGram API. Powered by VueJS.

@@ -1,0 +1,17 @@
+export const signupSuccess = 'SIGNUP_SUCCESS'
+export const signinSuccess = 'SIGNIN_SUCCESS'
+export const signout = 'SIGNOUT'
+export const saveToken = 'SAVE_TOKEN'
+
+export const getAllPostSuccess = 'GET_ALL_POST_SUCCESS'
+export const getPostSuccess = 'GET_POST_SUCCESS'
+export const createPostSucess = 'CREATE_POST_SUCCESS'
+export const updatePostCaptionSuccess = 'UPDATE_POST_CAPTION_SUCCESS'
+export const deletePostSucess = 'DELETE_POST_SUCCESS'
+export const createCommentSuccess = 'CREATE_COMMENT_SUCCESS'
+export const deleteCommentSuccess = 'DELETE_COMMENT_SUCCESS'
+
+export const notifyInfo = 'notify/info'
+export const notifySuccess = 'notify/success'
+export const notifyError = 'notify/error'
+export const notifyWarning = 'notify/warning'
