@@ -14,7 +14,7 @@ import App from './components/App'
 
 Vue.config.productionTip = false
 
-axios.defaults.baseURL = 'http://x.fajarpatappari.tk:3000/api'
+axios.defaults.baseURL = 'http://api.fajarpatappari.tk:3003/api'
 axios.defaults.headers.common['Authorization'] = localStorage.getItem('token')
 Vue.use(VueGoogleMaps, {
   load: {

@@ -1,7 +1,7 @@
 {
   "name": "friendgram-frontend",
   "version": "1.0.0",
-  "description": "Maintain you everyday todo",
+  "description": "Friend Gram FTW",
   "author": "Fajar Patappari <top.sick.red@gmail.com>",
   "private": true,
   "scripts": {
