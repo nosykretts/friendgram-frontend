@@ -1,14 +1,16 @@
 <template>
   <div>
     <!-- <big-search/> -->
-    <el-row :gutter="20">
-      <el-col :span="11" :offset="3">
+    <el-row :gutter="20" type="flex" justify="center">
+      
+      <el-col :md="{span:12}"photo>
         <post-list/>
       </el-col >
-      <el-col :span="6">
-        <h1>Sidebar</h1>
-        <div style="width:100%; height:300px; background:gold; display:block"></div>
-      </el-col>
+      <el-col :md="{span:6}" class="hidden-sm-and-down">
+        <h3>Sidebar</h3>
+        <hr>
+        <div style="width:100%; background:none; height:300px;  display:block"></div>
+      </el-col>      
     </el-row>
     
   </div>

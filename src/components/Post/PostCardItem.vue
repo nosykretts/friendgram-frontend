@@ -3,7 +3,7 @@
     <div slot="header" class="post-card-header">
       <user-avatar :user="post.creator"/>
       <div class="card-header-right">
-        <el-button @click="handleDelete" class="delete-post-button" type="text" icon="el-icon-delete" size="small"/>
+        <el-button v-if="post.canDeletePost" @click="handleDelete" class="delete-post-button" type="text" icon="el-icon-delete" size="small"/>
       </div>  
     </div>
     <img :src="post.photoUrl" class="image">
@@ -74,7 +74,7 @@ export default {
 .card-header-right{
   display: flex;
 
-  background: greenyellow;
+  background: rgb(255, 255, 255);
 }
 
 .delete-post-button{

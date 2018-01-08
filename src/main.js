@@ -7,6 +7,7 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'element-ui/lib/theme-chalk/reset.css'
+import 'element-ui/lib/theme-chalk/display.css';
 import router from './router'
 import store from './store'
 import App from './components/App'

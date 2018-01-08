@@ -1,7 +1,5 @@
 <template>
    <div>
-      <el-input placeholder="Add caption..." v-model="caption"/>
-      <el-button @click="handleSubmit">Submit</el-button>
       <el-upload
         class="avatar-uploader"
         action=""
@@ -11,6 +9,10 @@
           <img v-if="imageUrl" :src="imageUrl" class="avatar">
           <i v-else class="el-icon-plus avatar-uploader-icon"></i>
       </el-upload>
+  
+      <el-input placeholder="Add caption..." v-model="caption" />
+ 
+      <el-button type="primary" @click="handleSubmit" style="width:100%; margin-top: 20px;">Save</el-button>
    </div>
 </template>
 
@@ -43,7 +45,7 @@ export default {
 }
 </script>
 
-<style >
+<style>
   .avatar-uploader .el-upload {
     border: 1px dashed #d9d9d9;
     border-radius: 6px;
@@ -66,6 +68,10 @@ export default {
     width: 100%;
     /* height: 178px; */
     display: block;
+  }
+  .el-upload{
+    width: 100%;
+    margin-bottom: 20px;
   }
 </style>
 

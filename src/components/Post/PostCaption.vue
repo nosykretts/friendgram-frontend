@@ -1,9 +1,10 @@
 <template>
   <div>
       <div v-if="!editing" class="caption-flex">
-        <p><strong>{{post.creator.username}}</strong> {{caption}}</p>
+        <p><strong>{{post.creator.username}}</strong> {{caption}} <el-button @click="handleEditClick" type="text" v-if="post.canEditPost">Edit</el-button></p>
         <div class="edit-caption-button">
-          <el-button @click="handleEditClick" type="text" icon="el-icon-edit" />
+          
+          <!-- <el-button @click="handleEditClick" type="text" icon="el-icon-edit"/> -->
         </div>
       </div>
       <div v-if="editing">

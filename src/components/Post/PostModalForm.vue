@@ -1,6 +1,6 @@
 <template>
   <el-dialog
-    title="Tips"
+    title="Create Post"
     :visible.sync="modalVisible"
     width="30%"
     fullscreen

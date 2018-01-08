@@ -1,6 +1,6 @@
 <template>
   <div class="user-avatar">
-    <img src="https://ui-avatars.com/api/?name=John+Doe" alt="">
+    <img :src="'https://ui-avatars.com/api/?name='+user.name" alt="">
     <div class="username">
       <p>{{user.username}}</p>
     </div>
