@@ -28,15 +28,16 @@ export default {
     CommentList,
     PostCaption,
     CommentInput,
-    UserAvatar
+    UserAvatar,
   },
-  methods :{
-    handleDelete(){
+  methods: {
+    handleDelete() {
       this.$store.dispatch('post/deletePost', {
-        postId : this.post._id
+        // eslint-disable-next-line no-underscore-dangle
+        postId: this.post._id,
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

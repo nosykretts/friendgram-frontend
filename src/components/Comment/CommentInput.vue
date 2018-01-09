@@ -7,21 +7,21 @@
 export default {
   name: 'CommentInput',
   props: ['postId'],
-  data(){
+  data() {
     return {
-      commentText : ''
+      commentText: '',
     }
   },
   methods: {
-    submitComment(e){
-      let commentText = this.commentText
+    submitComment(e) {
+      const commentText = this.commentText
       e.target.value = ''
-      this.$store.dispatch('post/createComment',{
+      this.$store.dispatch('post/createComment', {
         postId: this.postId,
         text: commentText,
       })
-    }
-  }
+    },
+  },
 }
 </script>
 

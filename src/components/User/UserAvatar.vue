@@ -12,8 +12,8 @@
 
 <script>
 export default {
-  name : 'UserAvatar',
-  props : ['user']
+  name: 'UserAvatar',
+  props: ['user'],
 }
 </script>
 

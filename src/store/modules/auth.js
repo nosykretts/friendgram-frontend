@@ -3,7 +3,7 @@ import router from '@/router'
 import * as types from '../mutation-types'
 
 const state = {
-  isLoggedIn: localStorage.getItem('token') !== null ? true : false,
+  isLoggedIn: localStorage.getItem('token') !== null,
 }
 
 const getters = {
@@ -26,7 +26,7 @@ const actions = {
           commit(types.signinSuccess)
           resolve()
         })
-        .catch(err => {
+        .catch((err) => {
           commit('notify/error', err.response.data.message, { root: true })
           reject(err)
         })
@@ -44,7 +44,7 @@ const actions = {
         commit('notify/info', 'Signup success. Please login', { root: true })
         commit(types.signupSuccess)
       })
-      .catch(err => {
+      .catch((err) => {
         commit('notify/error', err.response.data.message, { root: true })
       })
   },
@@ -54,16 +54,16 @@ const mutations = {
   [types.signinSuccess](state) {
     state.isLoggedIn = true
   },
-  [types.signupSuccess](state) {
+  [types.signupSuccess]() {
     router.push({ name: 'signin' })
   },
   [types.saveToken](state, { token }) {
-    localStorage.setItem('token', 'Bearer ' + token)
-    axios.defaults.headers.common['Authorization'] = 'Bearer ' + token
+    localStorage.setItem('token', `Bearer ${token}`)
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`
   },
   [types.signout](state) {
     localStorage.removeItem('token')
-    axios.defaults.headers.common['Authorization'] = 'Bearer jwt'
+    axios.defaults.headers.common.Authorization = 'Bearer jwt'
     state.isLoggedIn = false
   },
 }

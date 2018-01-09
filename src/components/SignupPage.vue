@@ -21,13 +21,11 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-
 export default {
   data() {
     return {
       name: null,
-      username : null,
+      username: null,
       email: null,
       password: null,
     }
@@ -36,7 +34,7 @@ export default {
     submitForm() {
       this.$store.dispatch('auth/signup', {
         name: this.name,
-        username : this.username,
+        username: this.username,
         email: this.email,
         password: this.password,
       })

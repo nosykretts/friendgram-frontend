@@ -14,7 +14,6 @@
         <el-input
           class="caption-input"
           type="textarea"
-          autosize
           v-model="caption"
           :autosize="{ minRows: 2, maxRows: 5}"
           placeholder="Update your caption..."
@@ -29,31 +28,32 @@
 export default {
   name: 'PostCaption',
   props: ['post'],
-  data(){
+  data() {
     return {
-      editing : false,
-      caption : this.post.caption
+      editing: false,
+      caption: this.post.caption,
     }
   },
   methods: {
-    handleEditClick(){
+    handleEditClick() {
       this.editing = true
     },
-    handleSaveClick(){
-      if(this.post.caption == this.caption){
+    handleSaveClick() {
+      if (this.post.caption === this.caption) {
         this.editing = false
         return
       }
       this.editing = false
       this.$store.dispatch('post/updateCaption', {
+        // eslint-disable-next-line no-underscore-dangle
         postId: this.post._id,
-        caption: this.caption
+        caption: this.caption,
       })
     },
-    handleCancelClick(){
+    handleCancelClick() {
       this.editing = false
     },
-  }
+  },
 }
 </script>
 

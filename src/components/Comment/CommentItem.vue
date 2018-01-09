@@ -9,13 +9,13 @@
 
 export default {
   name: 'CommentItem',
-  props: ['comment']
+  props: ['comment'],
 }
 </script>
 
 
 <style>
-.comment-item{
-  /* margin-bottom: 5px; */
-}
+/* .comment-item{
+  margin-bottom: 5px;
+} */
 </style>

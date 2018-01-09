@@ -13,7 +13,7 @@ import CommentItem from './CommentItem'
 export default {
   name: 'CommentList',
   props: ['post'],
-  components: {CommentItem}
+  components: { CommentItem },
 }
 </script>
 

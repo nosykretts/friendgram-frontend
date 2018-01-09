@@ -6,26 +6,27 @@
 </template>
 
 <script>
-import {createNamespacedHelpers} from 'vuex'
-import PostCardItem from "./PostCardItem";
+import { createNamespacedHelpers } from 'vuex'
+import PostCardItem from './PostCardItem';
 import PostModalForm from './PostModalForm'
+
 const { mapGetters, mapActions } = createNamespacedHelpers('post')
 
 export default {
-  name : 'PostList',
-  mounted(){
+  name: 'PostList',
+  mounted() {
     this.getList()
   },
-  components : { 
+  components: {
     PostCardItem,
-    PostModalForm
+    PostModalForm,
   },
   methods: {
-    ...mapActions(['getList'])
+    ...mapActions(['getList']),
   },
-  computed:{
-    ...mapGetters(['posts'])
-  }
+  computed: {
+    ...mapGetters(['posts']),
+  },
 }
 </script>
 

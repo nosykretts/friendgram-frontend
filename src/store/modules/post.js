@@ -22,14 +22,14 @@ const actions = {
           })
           resolve()
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err.response.data.message)
           reject(err)
         })
     })
   },
   createPost({ commit }, { caption, file }) {
-    let formData = new FormData()
+    const formData = new FormData()
     formData.append('newPhoto', file)
     formData.append('caption', caption)
     axios
@@ -40,25 +40,26 @@ const actions = {
         })
         commit('hideModal')
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err.response.data.message)
       })
   },
   deletePost({ commit }, { postId }) {
     axios
-      .delete('/posts/' + postId)
+      .delete(`/posts/${postId}`)
       .then(({ data }) => {
         commit(types.deletePostSucess, {
-          postId,
+          // eslint-disable-next-line no-underscore-dangle
+          postId: data.data._id,
         })
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err.response.data.message)
       })
   },
   updateCaption({ commit }, { postId, caption }) {
     axios
-      .put('/posts/' + postId + '/updatecaption', {
+      .put(`/posts/${postId}/updatecaption`, {
         caption,
       })
       .then(({ data }) => {
@@ -66,7 +67,7 @@ const actions = {
           post: data.data,
         })
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err.response.data.message)
       })
   },
@@ -81,7 +82,7 @@ const actions = {
           comment: data.data,
         })
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err.response.data.message)
       })
   },
@@ -95,19 +96,25 @@ const mutations = {
     state.posts = [post, ...state.posts]
   },
   [types.deletePostSucess](state, { postId }) {
-    state.posts = state.posts.filter(oldPost => oldPost._id != postId)
+    // eslint-disable-next-line no-underscore-dangle
+    state.posts = state.posts.filter(oldPost => oldPost._id !== postId)
   },
   [types.updatePostCaptionSuccess](state, { post }) {
-    state.posts = state.posts.map(oldPost => {
-      if (oldPost._id == post._id) {
-        oldPost.caption = post.caption
+    state.posts = state.posts.map((oldPost) => {
+      // eslint-disable-next-line no-underscore-dangle
+      if (oldPost._id === post._id) {
+        return {
+          ...oldPost,
+          caption: post.caption,
+        }
       }
       return oldPost
     })
   },
   [types.createCommentSuccess](state, { postId, comment }) {
-    state.posts = state.posts.map(post => {
-      if (post._id == postId) {
+    state.posts = state.posts.map((post) => {
+       // eslint-disable-next-line no-underscore-dangle
+      if (post._id === postId) {
         post.comments.push(comment)
       }
       return post

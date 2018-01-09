@@ -19,29 +19,29 @@
 <script>
 export default {
   name: 'PostCreateForm',
-  data(){
+  data() {
     return {
-      imageUrl : '',
-      caption : '',
-      file : null,
+      imageUrl: '',
+      caption: '',
+      file: null,
     }
   },
   methods: {
-  fileInputChanged(file, fileList){
-    console.log('fileinputchanged')
-    this.imageUrl = URL.createObjectURL(file.raw);
-    this.file = file
+    fileInputChanged(file) {
+      console.log('fileinputchanged')
+      this.imageUrl = URL.createObjectURL(file.raw);
+      this.file = file
+    },
+    handleSubmit() {
+      const caption = this.caption
+      this.caption = ''
+      this.$store.dispatch('post/createPost', {
+        caption,
+        file: this.file.raw,
+        tempImageUrl: this.imageUrl,
+      })
+    },
   },
-  handleSubmit(){
-    let caption = this.caption
-    this.caption = ''
-    this.$store.dispatch('post/createPost', {
-      caption : caption,
-      file : this.file.raw,
-      tempImageUrl : this.imageUrl
-    })
-  }
- },
 }
 </script>
 

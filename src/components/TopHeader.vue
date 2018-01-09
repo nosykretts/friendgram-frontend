@@ -8,7 +8,8 @@
 </template>
 <script>
 import { createNamespacedHelpers } from 'vuex'
-const { mapGetters, mapMutations } = createNamespacedHelpers('auth')
+
+const { mapGetters } = createNamespacedHelpers('auth')
 export default {
   name: 'TopHeader',
   data() {

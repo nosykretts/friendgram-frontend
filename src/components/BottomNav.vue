@@ -5,23 +5,24 @@
 </template>
 
 <script>
-import {createNamespacedHelpers} from 'vuex'
-const { mapGetters, mapActions,  mapMutations } = createNamespacedHelpers('post')
+import { createNamespacedHelpers } from 'vuex'
+
+const { mapGetters, mapMutations } = createNamespacedHelpers('post')
 
 export default {
-  name:'bottomNav',
-  mounted(){
-    
+  name: 'bottomNav',
+  mounted() {
+
   },
   methods: {
-    ...mapMutations(['showModal'])
+    ...mapMutations(['showModal']),
   },
   computed: {
     ...mapGetters(['modalVisible']),
-    isLoggedIn(){
+    isLoggedIn() {
       return this.$store.getters['auth/isLoggedIn']
-    }
-  }
+    },
+  },
 }
 </script>
 

@@ -13,26 +13,24 @@
 </template>
 
 <script>
-import {createNamespacedHelpers} from 'vuex'
-const { mapGetters, mapActions, mapMutations } = createNamespacedHelpers('post')
 import PostCreateForm from './PostCreateForm'
 
 export default {
   name: 'PostModalForm',
-  components : {PostCreateForm},
+  components: { PostCreateForm },
   method: {
   },
-  computed:{
+  computed: {
     // ...mapGetters(['modalVisible']),
-    modalVisible : {
-      get(){
+    modalVisible: {
+      get() {
         return this.$store.getters['post/modalVisible']
       },
-      set(value){
+      set() {
         this.$store.commit('post/hideModal')
-      }
-    }
-  }
+      },
+    },
+  },
 }
 </script>
 

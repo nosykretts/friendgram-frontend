@@ -15,12 +15,13 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+
+
 export default {
   data() {
     return {
       email: null,
-      password: null
+      password: null,
     }
   },
   methods: {
@@ -28,7 +29,7 @@ export default {
       this.$store.dispatch('auth/signin', {
         email: this.email,
         password: this.password,
-      }).then(_ => {
+      }).then(() => {
         this.$router.push({ name: 'home' })
       })
       .catch()

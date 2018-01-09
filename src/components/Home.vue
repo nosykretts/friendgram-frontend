@@ -3,7 +3,7 @@
     <!-- <big-search/> -->
     <el-row :gutter="20" type="flex" justify="center">
       
-      <el-col :md="{span:12}"photo>
+      <el-col :md="{span:12}" photo>
         <post-list/>
       </el-col >
       <el-col :md="{span:6}" class="hidden-sm-and-down">
@@ -17,9 +17,8 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations, mapActions } from 'vuex'
 import PostList from '@/components/Post/PostList'
-// import BigSearch from '@/components/BigSearch'
+
 export default {
   name: 'Home',
   components: { PostList },

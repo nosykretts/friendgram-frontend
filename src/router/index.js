@@ -30,7 +30,7 @@ const publicRoute = [
 
 const router = new Router({
   mode: 'history',
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior() {
     return { x: 0, y: 0 }
   },
   routes: [...publicRoute],
@@ -43,16 +43,14 @@ router.beforeEach((to, from, next) => {
     } else {
       next({ name: 'signin' })
     }
+  } else if (to.name === 'signin' && localStorage.getItem('token')) {
+    next(false)
   } else {
-    if (to.name == 'signin' && localStorage.getItem('token')) {
-      next(false)
-    } else {
-      next()
-    }
+    next()
   }
 })
 
-router.onError(err => {
+router.onError((err) => {
   console.log(err.message)
 })
 
