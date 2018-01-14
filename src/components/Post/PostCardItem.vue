@@ -4,10 +4,12 @@
       <user-avatar :user="post.creator"/>
       <div class="card-header-right">
         <el-button v-if="post.canDeletePost" @click="handleDelete" class="delete-post-button" type="text" icon="el-icon-delete" size="small"/>
+        <FollowButton :post="post"/>
       </div>  
     </div>
     <img :src="post.photoUrl" class="image">
     <div style="padding: 14px;">
+      <like-button-counter :post="post"/>
       <post-caption :post="post"/>
       <comment-list :post="post"/>
       <comment-input :postId="post._id"/>
@@ -20,6 +22,8 @@ import CommentList from '@/components/Comment/CommentList'
 import CommentInput from '@/components/Comment/CommentInput'
 import PostCaption from '@/components/Post/PostCaption'
 import UserAvatar from '@/components/User/UserAvatar'
+import LikeButtonCounter from './LikeButtonCounter'
+import FollowButton from './FollowButton'
 
 export default {
   name: 'PostCardItem',
@@ -29,6 +33,8 @@ export default {
     PostCaption,
     CommentInput,
     UserAvatar,
+    LikeButtonCounter,
+    FollowButton,
   },
   methods: {
     handleDelete() {

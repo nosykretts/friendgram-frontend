@@ -2,7 +2,6 @@
   <el-input placeholder="Add a comment..." class="comment-input" @keyup.enter.native="submitComment" v-model="commentText"></el-input>
 </template>
 
-
 <script>
 export default {
   name: 'CommentInput',

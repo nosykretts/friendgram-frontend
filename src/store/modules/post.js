@@ -57,6 +57,38 @@ const actions = {
         console.error(err.response.data.message)
       })
   },
+  toggleLike({ commit }, { postId, likedByMe }) {
+    axios
+      .put(`/posts/${postId}/togglelike`, {
+        postId,
+      })
+      .then(({ data }) => {
+        commit(types.toggleLikeSuccess, {
+          postId,
+          likes: data.data,
+          likedByMe,
+        })
+      })
+      .catch((err) => {
+        console.error(err.response.data.message)
+      })
+  },
+  toggleFollow({ commit }, { userId, followedByMe }) {
+    axios
+      .put(`/users/${userId}/togglefollow`, {
+        userId,
+      })
+      .then(({ data }) => {
+        commit(types.toggleFollowSuccess, {
+          userId,
+          followers: data.data,
+          followedByMe,
+        })
+      })
+      .catch((err) => {
+        console.error(err.response.data.message)
+      })
+  },
   updateCaption({ commit }, { postId, caption }) {
     axios
       .put(`/posts/${postId}/updatecaption`, {
@@ -116,6 +148,35 @@ const mutations = {
        // eslint-disable-next-line no-underscore-dangle
       if (post._id === postId) {
         post.comments.push(comment)
+      }
+      return post
+    })
+  },
+  [types.toggleLikeSuccess](state, { postId, likes, likedByMe }) {
+    state.posts = state.posts.map((post) => {
+      // eslint-disable-next-line no-underscore-dangle
+      if (post._id === postId) {
+        return {
+          ...post,
+          likedByMe: !likedByMe,
+          likes,
+        }
+      }
+      return post
+    })
+  },
+  [types.toggleFollowSuccess](state, { userId, followers, followedByMe }) {
+    state.posts = state.posts.map((post) => {
+      // eslint-disable-next-line no-underscore-dangle
+      if (post.creator._id === userId) {
+        return {
+          ...post,
+          followedByMe: !followedByMe,
+          creator: {
+            ...post.creator,
+            followers,
+          },
+        }
       }
       return post
     })

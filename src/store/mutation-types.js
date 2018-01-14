@@ -10,6 +10,8 @@ export const updatePostCaptionSuccess = 'UPDATE_POST_CAPTION_SUCCESS'
 export const deletePostSucess = 'DELETE_POST_SUCCESS'
 export const createCommentSuccess = 'CREATE_COMMENT_SUCCESS'
 export const deleteCommentSuccess = 'DELETE_COMMENT_SUCCESS'
+export const toggleLikeSuccess = 'TOGGLE_LIKE_SUCCESS'
+export const toggleFollowSuccess = 'TOGGLE_FOLLOW_SUCCESS'
 
 export const notifyInfo = 'notify/info'
 export const notifySuccess = 'notify/success'
