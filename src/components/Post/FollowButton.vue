@@ -11,6 +11,7 @@ export default {
   methods: {
     handleToggleFollow() {
       this.$store.dispatch('post/toggleFollow', {
+        // eslint-disable-next-line no-underscore-dangle
         userId: this.post.creator._id,
         followedByMe: this.post.followedByMe,
       })

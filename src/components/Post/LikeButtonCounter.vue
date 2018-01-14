@@ -12,6 +12,7 @@ export default {
   methods: {
     handleToggleLike() {
       this.$store.dispatch('post/toggleLike', {
+        // eslint-disable-next-line no-underscore-dangle
         postId: this.post._id,
         likedByMe: this.post.likedByMe,
       })

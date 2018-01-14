@@ -28,7 +28,11 @@ const actions = {
         })
     })
   },
-  createPost({ commit }, { caption, file }) {
+  createPost({ commit }, { caption, file, tempImageUrl }) {
+    // commit(types.createPostRequest, {
+    //   caption,
+    //   file,
+    // })
     const formData = new FormData()
     formData.append('newPhoto', file)
     formData.append('caption', caption)
@@ -37,10 +41,12 @@ const actions = {
       .then(({ data }) => {
         commit(types.createPostSucess, {
           post: data.data,
+          tempImageUrl,
         })
         commit('hideModal')
       })
       .catch((err) => {
+        // commit(types.createPostFailure)
         console.error(err.response.data.message)
       })
   },
@@ -124,7 +130,22 @@ const mutations = {
   [types.getAllPostSuccess](state, { posts }) {
     state.posts = posts
   },
-  [types.createPostSucess](state, { post }) {
+  // [types.createPostRequest](state, { caption, file }) {
+  //   // state.posts = [{
+
+  //   // }, ...state.posts]
+  // },
+  [types.createPostSucess](state, { post, tempImageUrl }) {
+    state.posts = [{
+      ...post,
+      canDeletePost: true,
+      canEditPost: true,
+      canLikePost: false,
+      likeByMe: false,
+      photoUrl: tempImageUrl,
+    }, ...state.posts]
+  },
+  [types.createPostFailure](state, { post }) {
     state.posts = [post, ...state.posts]
   },
   [types.deletePostSucess](state, { postId }) {
